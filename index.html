@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tapşırıqları — Ümumi Səhifə</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 40px;">
+
+    <h1 style="text-align:center;">HTML Tapşırıqları — Ümumi Səhifə</h1>
+    <hr>
+
+    <!-- 1. Şəkil -->
+    <h2>1. Şəkil</h2>
+    <img src="pngtree-geometric-shape-fox-silhouette-in-tattoo-style-png-image_11539075.png" alt="Nümunə şəkil" width="500">
+
+    <!-- 2. YouTube Video -->
+    <!-- 2. YouTube Video -->
+<h2>2. YouTube Video</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3_6dcsdhaAE?si=jIfvBBaPdT4kenuD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <!-- 3. Audio -->
+    <h2>3. Audio</h2>
+    <audio controls>
+        <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+        Sizin brauzer audio faylları dəstəkləmir.
+    </audio>
+
+    <!-- 4. Başqa səhifəyə keçid -->
+    <h2>4. Başqa hissəyə keçid</h2>
+    <a href="#register">Form hissəsinə keç</a> | 
+    <a href="#cv">CV hissəsinə keç</a>
+
+    <!-- 5. Cədvəl -->
+    <h2>5. Cədvəl (Table)</h2>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>Ad</th>
+            <th>Yaş</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Elvin</td>
+            <td>21</td>
+            <td>Aktiv</td>
+        </tr>
+        <tr>
+            <td>Leyla</td>
+            <td>20</td>
+            <td>Passiv</td>
+        </tr>
+    </table>
+
+    <!-- 6. Siyahılar -->
+    <h2>6. Siyahılar (List)</h2>
+    <h3>Qeyri-sıralı siyahı (Unordered List)</h3>
+    <ul>
+        <li>Alma</li>
+        <li>Armud</li>
+        <li>Üzüm</li>
+    </ul>
+
+    <h3>Sıralı siyahı (Ordered List)</h3>
+    <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+
+    <!-- 7. Yazı Formatları -->
+    <h2>7. Yazı Formatları</h2>
+    <p><b>Bu mətn qalındır (Bold).</b></p>
+    <p><i>Bu mətn italikdir (Italic).</i></p>
+    <p style="text-align:center;"><b><i>Bu mətn həm qalın, həm italik, həm də mərkəzdə yerləşir.</i></b></p>
+
+    <hr>
+
+    <!-- 8. Register Form -->
+    <h2 id="register">8. Qeydiyyat Formu (Register)</h2>
+
+    <form action="https://httpbin.org/post" method="post">
+        <label for="fname">First name</label><br>
+        <input type="text" id="fname" name="first_name" required><br><br>
+
+        <label for="lname">Last name</label><br>
+        <input type="text" id="lname" name="last_name" required><br><br>
+
+        <label for="email">Email address</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" minlength="8" placeholder="Must be at least 8 characters" required><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <hr>
+
+    <!-- 9. CV / Resume -->
+    <h2 id="cv">9. Sadə CV / Resume</h2>
+
+    <img src="https://via.placeholder.com/150" alt="Şəxsi şəkil" width="150">
+
+    <h3><b>Elvin Məmmədov</b></h3>
+    <p><i>Frontend Developer</i></p>
+
+    <h4>Əlaqə məlumatları:</h4>
+    <ul>
+        <li>Email: elvin@example.com</li>
+        <li>Telefon: +994 50 123 45 67</li>
+        <li>Şəhər: Bakı, Azərbaycan</li>
+    </ul>
+
+    <h4>Bacarıqlar:</h4>
+    <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>React, Bootstrap</li>
+        <li>Git və GitHub</li>
+    </ul>
+
+    <h4>Təhsil:</h4>
+    <p><b>Bakı Dövlət Universiteti</b> — Kompüter elmləri (2020-2024)</p>
+
+    <h4>İş təcrübəsi:</h4>
+    <ul>
+        <li><b>Junior Developer</b> — Code Academy (2024-2025)</li>
+        <li><b>Intern Developer</b> — WebLab (2023)</li>
+    </ul>
+
+    <h4>Sosial media keçidləri:</h4>
+    <ul>
+        <li><a href="https://github.com" target="_blank">GitHub</a></li>
+        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+    </ul>
+
+    <p style="text-align:center;"><i>© 2025 Elvin Məmmədov — Sadə HTML CV</i></p>
+
+</body>
+</html>
+
+
+
