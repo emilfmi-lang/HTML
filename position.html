@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Kvadrat Misalı</title>
+    <style>
+        body {
+            height: 300vh; /* Scroll etmək üçün səhifəni uzadırıq */
+            margin: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Bütün qutular üçün baza stili */
+        .box {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px; /* Mətni şaquli mərkəzə gətirir */
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 10px;
+            border: 2px solid #333;
+            transition: all 0.3s ease; /* Vizual effekt üçün */
+        }
+
+        h2 {
+            margin-top: 40px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+        
+        /* Valideyn konteyner - Absolute üçün baza */
+        .relative-container {
+            position: relative;
+            width: 450px;
+            height: 300px;
+            border: 3px dashed #007bff;
+            background-color: #e9f5ff;
+            padding: 10px;
+            margin-bottom: 150px; /* Aşağıda boşluq saxlayır */
+        }
+
+        /* 1. STATIC Qutu (Default) */
+        .static-box {
+            position: static;
+            background-color: #6c757d;
+            margin-left: 0; /* Margin-i normal axında saxlayır */
+            float: left; /* Yan-yana gəlsin */
+        }
+        
+        /* 2. RELATIVE Qutu */
+        .relative-box {
+            position: relative;
+            top: 20px; /* Normal yerindən 20px aşağı sürüşdürülür */
+            left: 50px; /* Normal yerindən 50px sağa sürüşdürülür */
+            background-color: #ffc107;
+            float: left; 
+        }
+
+        /* 3. ABSOLUTE Qutu (Relative konteynerin içində) */
+        .absolute-box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #dc3545;
+            margin: 0; /* Valideyn küncünə yapışsın */
+            z-index: 10;
+        }
+
+        /* 4. FIXED Qutu */
+        .fixed-box {
+            position: fixed;
+            bottom: 20px; /* Ekranın aşağısından 20px yuxarı */
+            right: 20px; /* Ekranın sağından 20px sola */
+            background-color: #28a745;
+            z-index: 100; /* Həmişə öndə olsun */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 5. STICKY Qutu */
+        .sticky-box {
+            position: sticky;
+            top: 10px; /* Scroll zamanı yuxarıdan 10px aralı yapışsın */
+            background-color: #17a2b8;
+            z-index: 50;
+            margin-left: 0;
+            width: 90%; /* Bütün eni tutsun */
+            line-height: 50px; /* Mətni mərkəzə gətirmək üçün */
+            height: 50px;
+        }
+        
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Kvadratlar Üzərində CSS Position Növləri</h1>
+    <p>Səhifəni vərəqləyin ki, **FIXED** və **STICKY** qutuların necə davrandığını görəsiniz.</p>
+
+    <div class="sticky-box">
+        5. STICKY: Mən vərəqlənəndə yuxarıya yapışacağam! (top: 10px)
+    </div>
+
+    <div style="height: 150px; background-color: #ffeeba; text-align: center; line-height: 150px; margin-top: 10px;">
+        Sticky qutunun üzərindəki məzmun.
+    </div>
+
+    <h2>Relative Valideyn içində Static, Relative və Absolute</h2>
+    <div class="relative-container clearfix">
+        
+        <div class="box static-box">
+            1. STATIC (Default)
+        </div>
+
+        <div class="box relative-box">
+            2. RELATIVE (Sürüşdürüldü)
+        </div>
+
+        <div class="box absolute-box">
+            3. ABSOLUTE (Yuxarı sağ künc)
+        </div>
+
+        <p style="clear: both; margin-top: 120px; color: #007bff;">
+            Qeyd: Relative qutu sürüşdürülməsinə baxmayaraq, arxasındakı yeri saxladı. Absolute qutu isə axından çıxdı və valideynə yapışdı.
+        </p>
+    </div>
+
+    <div style="height: 1000px; background-color: #fff; padding: 20px; border-radius: 8px;">
+        <p>Səhifənin aşağısına doğru vərəqləyin...</p>
+        <p>Burada çoxlu məzmun var.</p>
+    </div>
+
+    <div class="box fixed-box">
+        4. FIXED (Scroll etmir)
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position - Bütün Növləri İstifadə Edərək Bilet Saytı</title>
+    <style>
+        /* Global & Static Defaults */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            height: 300vh; /* Scroll üçün səhifəni uzadırıq */
+        }
+        
+        /* Navigasiya zolağının konteyneri */
+        .navbar-container {
+            /* 1. STICKY: Səhifə vərəqləndikdə yuxarıya yapışır */
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Həmişə öndə olsun */
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #007bff;
+            /* 2. STATIC: Normal axın elementi (default) */
+            position: static; 
+        }
+
+        /* Nav Linkləri */
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+            /* 2. STATIC: Normal axın elementi (default) */
+            position: static; 
+        }
+        
+        .nav-links a:hover {
+            color: #007bff;
+        }
+
+        /* Axtarış Hissəsi üçün Relative konteyner */
+        .search-area {
+            /* 3. RELATIVE: Absolute elementi üçün baza rolunu oynayır */
+            position: relative;
+            padding: 10px 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+
+        /* Bildiriş Nişanı */
+        .notification-badge {
+            /* 4. ABSOLUTE: Relative valideynə nisbətən yerləşdirilir */
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 6px;
+            font-size: 0.7em;
+            font-weight: 700;
+            border: 1px solid white;
+        }
+
+        /* Əsas Məzmun */
+        .content-area {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        
+        .ticket-card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+            /* 2. STATIC: Normal axın elementi (default) */
+            position: static; 
+        }
+        
+        /* FİXED Səbət Düyməsi */
+        .cart-button {
+            /* 5. FIXED: Brauzer pəncərəsinə nisbətən yerləşdirilir və scroll etmir */
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #28a745;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+            z-index: 1001; /* Sticky elementdən də öndə olsun */
+        }
+
+        .cart-button:hover {
+            background-color: #218838;
+        }
+        
+        /* Sticky Elementin aşağısında boşluq yaratmaq */
+        .placeholder {
+            height: 100px; 
+            background-color: #d1ecf1;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar-container">
+        <div class="navbar">
+            <div class="logo">BİLET AZ</div>
+            <div class="nav-links">
+                <a href="#">Konsertlər</a>
+                <a href="#">İdman</a>
+                <a href="#">Teatr</a>
+                <div class="search-area">
+                    Axtarış
+                    <span class="notification-badge">yeni</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-area">
+        <h1>Populyar Tədbirlər</h1>
+        
+        <div class="placeholder">
+            **Bu yuxarı hissəni scroll edin (vərəqləyin)!**<br>
+            Naviqasiya zolağı yuxarıya yapışacaq (`position: sticky`).
+        </div>
+        
+        <div class="ticket-card">
+            <h2>Avropa Futbol Çempionatı</h2>
+            <p>Tarix: 22 Aprel</p>
+            <p>Məkan: Bakı Olimpiya Stadionu</p>
+            <button>Bilet Al</button>
+        </div>
+
+        <div class="ticket-card">
+            <h2>Dünya Xalq Musiqisi Festivalı</h2>
+            <p>Tarix: 10 May</p>
+            <p>Məkan: Heydər Əliyev Sarayı</p>
+            <button>Bilet Al</button>
+        </div>
+        
+        <div class="ticket-card" style="height: 400px; display: flex; align-items: center; justify-content: center; background-color: #fff3cd; border-color: #ffeeba;">
+            <p>Daha çox məzmun... Səhifəni vərəqləməyə davam edin.</p>
+        </div>
+        
+        <div class="ticket-card">
+            <h2>Azərbaycan Dram Teatrı: "Vaqif"</h2>
+            <p>Tarix: 17 İyun</p>
+            <p>Məkan: Dövlət Dram Teatrı</p>
+            <button>Bilet Al</button>
+        </div>
+        
+    </div>
+
+    <a href="#" class="cart-button">
+        🛒 Səbəti Gör (2 bilet)
+    </a>
+
+</body>
+</html>
