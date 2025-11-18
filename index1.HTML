@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<title>Salamlar Hamiya - Hərəkətli</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Momo+Signature&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<!-- Font Awesome 7 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(135deg, #f3f4f6, #dbeafe);
+    font-family: "Roboto Condensed", sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Başlıq hərflər üçün container */
+#headline {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: "Momo Signature", cursive;
+    font-size: 64px;
+    margin: 20px 0;
+}
+
+/* Hərf animasiyası */
+.letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: drop 0.6s forwards;
+}
+
+/* Staggered animation */
+.letter:nth-child(1) { animation-delay: 0s; }
+.letter:nth-child(2) { animation-delay: 0.05s; }
+.letter:nth-child(3) { animation-delay: 0.1s; }
+.letter:nth-child(4) { animation-delay: 0.15s; }
+.letter:nth-child(5) { animation-delay: 0.2s; }
+.letter:nth-child(6) { animation-delay: 0.25s; }
+.letter:nth-child(7) { animation-delay: 0.3s; }
+.letter:nth-child(8) { animation-delay: 0.35s; }
+.letter:nth-child(9) { animation-delay: 0.4s; }
+.letter:nth-child(10) { animation-delay: 0.45s; }
+.letter:nth-child(11) { animation-delay: 0.5s; }
+.letter:nth-child(12) { animation-delay: 0.55s; }
+.letter:nth-child(13) { animation-delay: 0.6s; }
+.letter:nth-child(14) { animation-delay: 0.65s; }
+
+@keyframes drop {
+    0% { opacity: 0; transform: translateY(100px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* İkonlar */
+.icon {
+    color: #ef4444;
+    font-size: 36px;
+    margin: 0 10px;
+    display: inline-block;
+    animation: bounce 2s infinite;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.icon:hover {
+    color: #3b82f6;
+    transform: scale(1.5) rotate(15deg);
+}
+
+/* Paraqraf */
+p {
+    font-size: 22px;
+    margin: 8px 0;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 2s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- Başlıq -->
+<div id="headline">
+    <span class="letter">S</span>
+    <span class="letter">a</span>
+    <span class="letter">l</span>
+    <span class="letter">a</span>
+    <span class="letter">m</span>
+    <span class="letter">l</span>
+    <span class="letter">a</span>
+    <span class="letter">r</span>
+    <span class="letter"> </span>
+    <span class="letter">H</span>
+    <span class="letter">a</span>
+    <span class="letter">m</span>
+    <span class="letter">i</span>
+    <span class="letter">y</span>
+    <span class="letter">a</span>
+</div>
+
+<!-- Kiçik başlıq -->
+<h2><i class="fas fa-code icon"></i>HTML + CSS + Animasiya</h2>
+
+<p><i class="fas fa-star icon"></i>Roboto Condensed ilə paragraf</p>
+<p><i class="fas fa-heart icon"></i>Font + İkon + Animasiya — hamısı bir yerdə!</p>
+
+</body>
+</html>
+
+
+

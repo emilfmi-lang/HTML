@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacifico Toy Dəvətnaməsi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #fff0f5, #ffe6f0);
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Zərf konteyneri */
+.envelope-container {
+    position: relative;
+    width: 550px;  
+    height: 450px;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+/* Zərfin özü */
+.envelope {
+    width: 100%;
+    height: 100%;
+    background: #d81b60;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    transform-origin: top;
+    transition: transform 1s ease-in-out;
+    z-index: 2;
+}
+
+/* Zərf qapağı */
+.envelope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff4081;
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 50%, 0 50%);
+    transform-origin: top;
+    transition: transform 1s ease-in-out;
+    z-index: 3;
+}
+
+/* Zərf açıldığında qapaq */
+.envelope.open::before {
+    transform: rotateX(180deg);
+}
+
+/* Bant efekti */
+.envelope::after {
+    content: '';
+    position: absolute;
+    top: 45%;
+    left: 10%;
+    width: 80%;
+    height: 10px;
+    background: #ff80ab;
+    border-radius: 5px;
+    z-index: 4;
+    transition: opacity 0.5s;
+}
+
+/* Bant gizlənir açıldığında */
+.envelope.open::after {
+    opacity: 0;
+}
+
+/* İçindəki dəvətnamə kağızı */
+.invitation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;  
+    height: 380px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+    transform: translate(-50%, -50%) translateY(-150%);
+    transition: transform 1s ease-in-out;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Zərf açıldığında kağız çıxır, amma zərf qalır */
+.envelope.open .invitation {
+    transform: translate(-50%, -50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Mətnlər */
+h1, h2, .line {
+    margin: 5px 0;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    color: #d81b60;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #555;
+}
+
+/* Yazılar üçün sətirlər */
+.line {
+    font-family: 'Pacifico', cursive;
+    font-size: 16px;
+    color: #d81b60;
+}
+
+/* Icon üçün */
+.invitation .icon {
+    font-size: 36px;
+    color: #d81b60;
+    margin-top: 20px;
+}
+
+/* Ürək animasiyası kağız fonunda */
+.heart {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ff4081;
+    transform: rotate(-45deg);
+    animation: heartFloat 5s infinite;
+    opacity: 0.7;
+    border-radius: 50%;
+}
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ff4081;
+    border-radius: 50%;
+}
+.heart::before { top: -6px; left: 0; }
+.heart::after { left: 6px; top: 0; }
+
+@keyframes heartFloat {
+    0% {transform: translateY(0px) rotate(-45deg);}
+    50% {transform: translateY(-40px) rotate(-45deg);}
+    100% {transform: translateY(0px) rotate(-45deg);}
+}
+</style>
+</head>
+<body>
+
+<div class="envelope-container" onclick="openEnvelope(this)">
+    <div class="envelope">
+        <div class="invitation">
+            <h1 id="title"></h1>
+            <h2 id="subtitle"></h2>
+            <p class="line" id="message"></p>
+            <p class="line" id="date"></p>
+            <p class="line" id="time"></p>
+            <p class="line" id="place"></p>
+            <!-- Evlilik ikonu -->
+            <div class="icon"><i class="fas fa-ring"></i></div>
+
+            <!-- Ürək animasiyaları -->
+            <div class="heart" style="top:20px; left:30px;"></div>
+            <div class="heart" style="top:80px; right:40px;"></div>
+            <div class="heart" style="bottom:50px; left:50px;"></div>
+            <div class="heart" style="top:120px; left:200px;"></div>
+            <div class="heart" style="bottom:100px; right:100px;"></div>
+            <div class="heart" style="top:50px; right:150px;"></div>
+            <div class="heart" style="top:200px; left:50px;"></div>
+            <div class="heart" style="bottom:150px; right:200px;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Letter-by-letter animasiya funksiyası
+function typeText(element, text, delay = 50, callback) {
+    element.textContent = "";
+    let i = 0;
+    function addChar() {
+        if (i < text.length) {
+            element.textContent += text[i];
+            i++;
+            setTimeout(addChar, delay);
+        } else if (callback) {
+            callback();
+        }
+    }
+    addChar();
+}
+
+// Dəvətnamə mətni
+const textData = {
+    title: "Aylin & Kamran",
+    subtitle: "Bizim toyumuza dəvətlisiniz!",
+    message: "Sevincimizi sizinlə bölüşməkdən məmnun olarıq. Gəlin, bu gözəl günü birlikdə qeyd edək.",
+    date: "Tarix: 10 Dekabr 2025",
+    time: "Vaxt: 18:00",
+    place: "Məkan: Bakı, Xəzər Palace"
+};
+
+function openEnvelope(el) {
+    const envelope = el.querySelector('.envelope');
+    envelope.classList.toggle('open');
+
+    if (envelope.classList.contains('open')) {
+        typeText(document.getElementById('title'), textData.title, 80, () => {
+            typeText(document.getElementById('subtitle'), textData.subtitle, 50, () => {
+                typeText(document.getElementById('message'), textData.message, 20, () => {
+                    typeText(document.getElementById('date'), textData.date, 50, () => {
+                        typeText(document.getElementById('time'), textData.time, 50, () => {
+                            typeText(document.getElementById('place'), textData.place, 50);
+                        });
+                    });
+                });
+            });
+        });
+    } else {
+        document.getElementById('title').textContent = "";
+        document.getElementById('subtitle').textContent = "";
+        document.getElementById('message').textContent = "";
+        document.getElementById('date').textContent = "";
+        document.getElementById('time').textContent = "";
+        document.getElementById('place').textContent = "";
+    }
+}
+</script>
+
+</body>
+</html>
